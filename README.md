@@ -1,4 +1,4 @@
-# Restaurant Management System
+# Pruthvi chinese center
 
 A web-based restaurant management system that helps manage tables, menu items, and billing for both regular and Chinese sections.
 
