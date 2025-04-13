@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Order - Pruthvi Chinese Center</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Add Flatpickr for better date picking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Pruthvi Chinese Center</div>
+        <div class="nav-links">
+            <a href="index.html">Tables</a>
+            <a href="items.html">Items List</a>
+            <a href="history.html">Tables History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-actions">
+            <h1>Table <span id="tableNumber"></span> - Order</h1>
+            <button class="btn-primary" onclick="showAddOrderModal()">
+                <span class="material-icons">add</span>
+                Add Item
+            </button>
+        </div>
+
+        <div class="order-section">
+            <div class="order-status">
+                <span class="status-badge" id="orderStatus">Available</span>
+                <span class="order-time" id="orderTime"></span>
+            </div>
+            <table class="bill-table">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Item Name</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="orderItems">
+                    <!-- Order items will be populated by JavaScript -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right"><strong>Sub Total:</strong></td>
+                        <td id="subTotal">₹0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="bill-actions">
+                <button class="btn-secondary" onclick="clearOrder()">Clear Order</button>
+                <button class="btn-primary" onclick="generateBill()">Generate Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <h2>Add Item to Order</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="itemSelect">Select Item:</label>
+                    <select id="itemSelect" required>
+                        <option value="">Choose an item...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" required min="1" value="1">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Add to Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/table.js"></script>
+</body>
+</html> 
